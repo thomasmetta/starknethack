@@ -10,6 +10,12 @@ const convertFee = (fee) => {
     return (fee / Math.pow(10, 18)).toFixed(6);
 };
 
+const convertTimestamp = (timestamp) => {
+    if (!timestamp) return '';
+    const date = new Date(timestamp * 1000); // Multiply by 1000 to convert to milliseconds
+    return date.toLocaleString(); // Convert to a readable date and time format
+};
+
 const DataTable = ({ items }) => {
   return (
     <table border="1" style={{ width: '100%', textAlign: 'center' }}>
@@ -34,7 +40,7 @@ const DataTable = ({ items }) => {
             <td>{shortenAddress(item.hash)}</td>
             <td>{shortenAddress(item.l1VerificationHash)}</td>
             <td>{item.status}</td>
-            <td>{item.timestamp}</td>
+            <td>{convertTimestamp(item.timestamp)}</td>
             <td>{item.type}</td>
           </tr>
         ))}
