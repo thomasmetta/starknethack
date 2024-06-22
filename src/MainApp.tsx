@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
 import axios from 'axios';
 import DataTable from './DataTable.tsx';
+import TokenList from './TokenList.tsx';
 
 function MainApp() {
     const { primaryWallet } = useDynamicContext();
@@ -37,9 +38,9 @@ function MainApp() {
         fetchData();
       }, [walletAddress]);
 
-    console.log("data", data)
     return <div>
     {primaryWallet && <> Your Address {primaryWallet.address}</>}
+    {primaryWallet && <TokenList address={primaryWallet.address}/>}
     {primaryWallet && data?.items && <DataTable items={data?.items} />}
     </div>;
 
