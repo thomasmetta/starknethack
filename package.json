@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@dynamic-labs/ethereum": "^2.2.2",
+    "@dynamic-labs/ethereum": "^2.2.4",
     "@dynamic-labs/sdk-react-core": "^2.2.2",
     "@dynamic-labs/starknet": "^2.2.2",
     "axios": "^1.7.2",
