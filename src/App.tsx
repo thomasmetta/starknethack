@@ -60,7 +60,7 @@ const App = () => {
   return (
     <DynamicContextProvider
         settings={{
-          environmentId: "",
+          environmentId: process.env.REACT_APP_DYNAMIC_KEY,
           walletConnectors: [EthereumWalletConnectors, StarknetWalletConnectors],
           overrides: {
             views: views,
