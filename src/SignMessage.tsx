@@ -20,7 +20,7 @@ function SignMessage() {
 
 
     return <div>
-    <button onClick={() => handleSignMessage()}>Sign Message</button>
+    {primaryWallet && <> Your Address {primaryWallet.address}</>}
     </div>;
 
 }
