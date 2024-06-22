@@ -1,8 +1,9 @@
 import React, { useState, useEffect} from 'react';
 import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
 import axios from 'axios';
+import DataTable from './DataTable.tsx';
 
-function SignMessage() {
+function MainApp() {
     const { primaryWallet } = useDynamicContext();
 
     const walletAddress = primaryWallet?.address;
@@ -39,8 +40,9 @@ function SignMessage() {
     console.log("data", data)
     return <div>
     {primaryWallet && <> Your Address {primaryWallet.address}</>}
+    {primaryWallet && data?.items && <DataTable items={data?.items} />}
     </div>;
 
 }
 
-export default SignMessage;
+export default MainApp;

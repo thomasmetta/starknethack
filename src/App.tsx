@@ -3,7 +3,7 @@ import { DynamicContextProvider, DynamicWidget, FilterChain } from "@dynamic-lab
 import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
 import { StarknetWalletConnectors } from "@dynamic-labs/starknet";
 
-import SignMessage from './SignMessage.tsx';
+import MainApp from './MainApp.tsx';
 
 import './App.css';
 
@@ -70,7 +70,7 @@ const App = () => {
       locale={locale}
     >
       <DynamicWidget />
-      <SignMessage />
+      <MainApp />
     </DynamicContextProvider>
   )
 }
