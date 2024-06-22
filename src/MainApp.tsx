@@ -17,7 +17,7 @@ function MainApp() {
               'https://sepolia-api.voyager.online/beta/txns',
               {
                 params: {
-                  to: '0x05d7eb3b2c286dc823a8d6fe71283c28ec04ef5845593ef3260f2f82a9c3b978',
+                  to: walletAddress,
                   rejected: false,
                   ps: 25,
                   p: 1,
