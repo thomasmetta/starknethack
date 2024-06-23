@@ -44,7 +44,7 @@ function MainApp() {
     return <div>
     {starkWallet && (
       <>
-        Your Address {starkWallet.address}
+        Your Starknet wallet: {starkWallet.address}
         <TokenList address={starkWallet.address} />
         {data?.items && <DataTable items={data?.items} />}
       </>

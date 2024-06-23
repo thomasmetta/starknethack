@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const convertFee = (fee) => {
+  if (!fee) return '0';
+  return (fee / Math.pow(10, 18)).toFixed(6);
+};
+
 const TokenBalance = (address) => {
   const [balance, setBalance] = useState(null);
 
@@ -26,7 +31,7 @@ const TokenBalance = (address) => {
         const hexTokenBalance = response?.data?.result[0];
         const hexWithoutPrefix = hexTokenBalance.startsWith("0x") ? hexTokenBalance.slice(2) : hexTokenBalance;
         const decimalNumber = parseInt(hexWithoutPrefix, 16);
-        setBalance(decimalNumber)
+        setBalance(convertFee(decimalNumber))
       } catch (error) {
         console.error('Error fetching data:', error);
       }
