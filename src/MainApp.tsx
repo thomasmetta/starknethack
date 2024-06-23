@@ -4,6 +4,7 @@ import axios from 'axios';
 import DataTable from './DataTable.tsx';
 import TokenList from './TokenList.tsx';
 import EthereumContainer from './EthereumContainer.tsx';
+import SignTransaction from './SignTransaction.tsx';
 
 function MainApp() {
     const userWallets = useUserWallets()
@@ -50,6 +51,7 @@ function MainApp() {
       </>
     )}
     {ethWallet && (<EthereumContainer address={ethWallet.address} />)}
+    {ethWallet && (<SignTransaction />)}
     </div>;
 
 }
