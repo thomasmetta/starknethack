@@ -37,8 +37,7 @@ const TokenBalance = (address) => {
 
   return (
     <div>
-      <h2>Check STRK Token Balance</h2>
-      {balance}
+      <h2>Starknet STRK Token Balance</h2> {balance}
     </div>
   );
 };

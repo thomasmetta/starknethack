@@ -1,13 +1,15 @@
 import React, { useState, useEffect} from 'react';
-import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
+import { useDynamicContext, useUserWallets } from "@dynamic-labs/sdk-react-core";
 import axios from 'axios';
 import DataTable from './DataTable.tsx';
 import TokenList from './TokenList.tsx';
 
 function MainApp() {
-    const { primaryWallet } = useDynamicContext();
+    const userWallets = useUserWallets()
+    const ethWallet = userWallets.find(wallet => wallet.chain === 'EVM')
+    const starkWallet = userWallets.find(wallet => wallet.chain === 'STARK')
 
-    const walletAddress = primaryWallet?.address;
+    const starkWalletAddress = starkWallet?.address;
  
     const [data, setData] = useState({ hits: [] });
    
@@ -18,7 +20,7 @@ function MainApp() {
               'https://sepolia-api.voyager.online/beta/txns',
               {
                 params: {
-                  to: walletAddress,
+                  to: starkWalletAddress,
                   rejected: false,
                   ps: 25,
                   p: 1,
@@ -36,12 +38,16 @@ function MainApp() {
         };
     
         fetchData();
-      }, [walletAddress]);
+      }, [starkWalletAddress]);
 
     return <div>
-    {primaryWallet && <> Your Address {primaryWallet.address}</>}
-    {primaryWallet && <TokenList address={primaryWallet.address}/>}
-    {primaryWallet && data?.items && <DataTable items={data?.items} />}
+    {starkWallet && (
+      <>
+        Your Address {starkWallet.address}
+        <TokenList address={starkWallet.address} />
+        {data?.items && <DataTable items={data?.items} />}
+      </>
+    )}
     </div>;
 
 }

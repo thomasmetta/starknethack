@@ -2,6 +2,7 @@ import React from 'react';
 import { DynamicContextProvider, DynamicWidget, FilterChain } from "@dynamic-labs/sdk-react-core";
 import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
 import { StarknetWalletConnectors } from "@dynamic-labs/starknet";
+import { DynamicBridgeWidget } from "@dynamic-labs/sdk-react-core"
 
 import MainApp from './MainApp.tsx';
 
@@ -61,15 +62,22 @@ const App = () => {
     <DynamicContextProvider
         settings={{
           environmentId: process.env.REACT_APP_DYNAMIC_KEY,
+          initialAuthenticationMode: "connect-only",
           walletConnectors: [EthereumWalletConnectors, StarknetWalletConnectors],
-          overrides: {
-            views: views,
-          },
+          bridgeChains: [
+            {
+              chain: "EVM",
+            },
+            {
+              chain: "STARK",
+            },
+          ],
       }}
 
       locale={locale}
     >
       <DynamicWidget />
+      <DynamicBridgeWidget />
       <MainApp />
     </DynamicContextProvider>
   )
