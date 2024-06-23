@@ -1,10 +1,11 @@
 import React, { useState, useEffect} from 'react';
-import { useDynamicContext, useUserWallets } from "@dynamic-labs/sdk-react-core";
+import { useUserWallets } from "@dynamic-labs/sdk-react-core";
 import axios from 'axios';
 import DataTable from './DataTable.tsx';
 import TokenList from './TokenList.tsx';
 import EthereumContainer from './EthereumContainer.tsx';
 import SignTransaction from './SignTransaction.tsx';
+import { DynamicBridgeWidget } from "@dynamic-labs/sdk-react-core"
 
 function MainApp() {
     const userWallets = useUserWallets()
@@ -43,6 +44,7 @@ function MainApp() {
       }, [starkWalletAddress]);
 
     return <div>
+    {ethWallet && starkWallet && (<DynamicBridgeWidget/>)}
     {starkWallet && (
       <>
         Your Starknet wallet: {starkWallet.address}

@@ -20,14 +20,10 @@ export const SignTransaction: FC = () => {
 
   if (!primaryWallet) return null;
 
-  const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
 
     try {
-        const formData = new FormData(event.currentTarget);
-
-        const address = formData.get("address") as string;
-        const amount = formData.get("amount") as string;
         const provider = await primaryWallet.connector.getSigner<
         WalletClient<Transport, Chain, Account>
         >();
@@ -49,9 +45,11 @@ export const SignTransaction: FC = () => {
     };
 
   return (
-    <form onSubmit={onSubmit}>
-      <button type="submit">Bridge to Starknet</button>
-    </form>
+    <>
+        <button className="custom-button" onClick={onSubmit}>
+        Bridge to Starknet
+        </button>
+    </> 
   );
 };
 

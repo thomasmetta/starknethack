@@ -2,7 +2,6 @@ import React from 'react';
 import { DynamicContextProvider, DynamicWidget, FilterChain } from "@dynamic-labs/sdk-react-core";
 import { EthereumWalletConnectors } from "@dynamic-labs/ethereum";
 import { StarknetWalletConnectors } from "@dynamic-labs/starknet";
-import { DynamicBridgeWidget } from "@dynamic-labs/sdk-react-core"
 
 import MainApp from './MainApp.tsx';
 
@@ -76,9 +75,11 @@ const App = () => {
 
       locale={locale}
     >
+      <div className="centered-container">
+      Sign in to view your transactions in Ethereum and starknet and bridge from Ethereum to Starknet
       <DynamicWidget />
-      <DynamicBridgeWidget />
       <MainApp />
+      </div>
     </DynamicContextProvider>
   )
 }
