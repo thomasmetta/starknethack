@@ -76,6 +76,7 @@ const App = () => {
       locale={locale}
     >
       <div className="centered-container">
+      <p>EtherStark Connect</p>
       Sign in to view your transactions in Ethereum and starknet and bridge from Ethereum to Starknet
       <DynamicWidget />
       <MainApp />
