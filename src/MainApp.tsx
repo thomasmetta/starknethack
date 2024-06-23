@@ -3,6 +3,7 @@ import { useDynamicContext, useUserWallets } from "@dynamic-labs/sdk-react-core"
 import axios from 'axios';
 import DataTable from './DataTable.tsx';
 import TokenList from './TokenList.tsx';
+import EthereumContainer from './EthereumContainer.tsx';
 
 function MainApp() {
     const userWallets = useUserWallets()
@@ -48,6 +49,7 @@ function MainApp() {
         {data?.items && <DataTable items={data?.items} />}
       </>
     )}
+    {ethWallet && (<EthereumContainer address={ethWallet.address} />)}
     </div>;
 
 }
