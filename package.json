@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@dynamic-labs/ethereum": "^2.2.2",
-    "@dynamic-labs/sdk-react-core": "^2.2.2",
+    "@dynamic-labs/sdk-react-core": "^2.2.6",
     "@dynamic-labs/starknet": "^2.2.2",
     "axios": "^1.7.2",
     "ethers": "^5.7.2",
